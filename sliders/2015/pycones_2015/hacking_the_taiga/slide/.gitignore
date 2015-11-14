@@ -3,6 +3,7 @@ log/*.log
 tmp/**
 node_modules/
 .sass-cache
+css/reveal.css
 css/reveal.min.css
 js/reveal.min.js
 css/theme/*.css
