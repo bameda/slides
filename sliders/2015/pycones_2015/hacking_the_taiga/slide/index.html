@@ -1,98 +1,105 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
 
-	<head>
-		<meta charset="utf-8">
+        <title>Hacking the Taiga</title>
 
-		<title>Hacking the Taiga</title>
+        <meta name="description" content="Tecnicas para hackear Taiga.">
+        <meta name="author" content="David Barragán Merino">
 
-		<meta name="description" content="Tecnicas para hackear Taiga.">
-		<meta name="author" content="David Barragán Merino">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/taiga.css" id="theme">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/taiga.css" id="theme">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match(/print-pdf/gi)? 'css/print/pdf.css':'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match(/print-pdf/gi)? 'css/print/pdf.css':'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-
-	<body>
-		<div class="reveal">
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
 
                 <!-- Cover -->
-				<section style="text-align: right" data-background="/img/cover/botanical-taiga-bg.png">
-					<h1>Hacking the <a href="https://taiga.io">Taiga</a></h1>
-					<p>
-						<small>
+                <section style="text-align: right" data-background="/img/cover/botanical-taiga-bg.png">
+                    <h1>Hacking the <a href="https://taiga.io">Taiga</a></h1>
+                    <p>
+                        <small>
                             by
                             &nbsp;<a href="http://kaleidos.net/FFF8E7/">David Barragán Merino</a> /
                             &nbsp;<a href="http://twitter.com/bameda">@bameda</a>
                         </small>
-					</p>
+                    </p>
                     <br><br><br>
                     <img src="/img/cover/pycones-logo.png"
                          style="border: 0; background: none; height: 6rem;">
-				</section>
+                </section>
 
                 <!-- Who am I? -->
-				<section style="text-align: left" data-background="/img/who-am-i/david-bg.png">
-					<h2>Hi!</h2>
+                <section style="text-align: left" data-background="/img/who-am-i/david-bg.png">
+                    <h2>Hi!</h2>
                     <br />
                     <h4 class="fragment" data-autoslide="200">David Barragán Merino</h4>
-                    <p class="fragment" data-autoslide="200"><a href="http://kaleidos.net/FFF8E7/">#FFF8E7</a> at Kaleidos</p>
-                    <p class="fragment" data-autoslide="200"><a herf="https://tree.taiga.io/humans.txt">Grouchy Smurf</a> at Taiga</p>
+                    <p class="fragment" data-autoslide="200">
+                        <a href="http://kaleidos.net/FFF8E7/">#FFF8E7</a> at Kaleidos
+                    </p>
+                    <p class="fragment" data-autoslide="200">
+                        <a href="https://tree.taiga.io/humans.txt">Grouchy Smurf</a> at Taiga
+                    </p>
                     <br>
-                    <p class="fragment" data-autoslide="200"><a href="https://github.com/bameda">bameda</a> on Github</p>
-                    <p class="fragment"><a href="https://twitter.com/bameda">@bameda</a> on Twitter</p>
-				</section>
+                    <p class="fragment" data-autoslide="200">
+                        <a href="https://github.com/bameda">bameda</a> on Github
+                    </p>
+                    <p class="fragment">
+                        <a href="https://twitter.com/bameda">@bameda</a> on Twitter
+                    </p>
+                </section>
 
                 <!-- Who is Taiga? -->
-				<section>
+                <section>
                     <section>
-                        <h2>What's Taiga?</h2>
+                        <h2 data-autoslide="500">What's Taiga?</h2>
                         <img class="fragment"
                              src="/img/who-is-taiga/taiga-logo-color-moustach.png"
                              style="border: 0; background: none;">
                     </section>
-				    <section data-background-transition="convex">
+                    <section data-background-transition="convex">
                         <img src="/img/who-is-taiga/01.png">
                     </section>
-				    <section><img src="/img/who-is-taiga/02.png"></section>
+                    <section><img src="/img/who-is-taiga/02.png"></section>
                     <section><img src="/img/who-is-taiga/03.png"></section>
                     <section><img src="/img/who-is-taiga/04.png"></section>
-				    <section><img src="/img/who-is-taiga/05.png"></section>
-				    <section><img src="/img/who-is-taiga/06.png"></section>
-				    <section><img src="/img/who-is-taiga/07.png"></section>
-				    <section><img src="/img/who-is-taiga/08.png"></section>
-				    <section><img src="/img/who-is-taiga/09.png"></section>
-				    <section><img src="/img/who-is-taiga/10.png"></section>
-				    <section><img src="/img/who-is-taiga/11.png"></section>
-				    <section><img src="/img/who-is-taiga/12.png"></section>
-				    <section><img src="/img/who-is-taiga/13.png"></section>
-				    <section><img src="/img/who-is-taiga/14.png"></section>
-				    <section><img src="/img/who-is-taiga/15.png"></section>
-				    <section><img src="/img/who-is-taiga/16.png"></section>
-				</section>
+                    <section><img src="/img/who-is-taiga/05.png"></section>
+                    <section><img src="/img/who-is-taiga/06.png"></section>
+                    <section><img src="/img/who-is-taiga/07.png"></section>
+                    <section><img src="/img/who-is-taiga/08.png"></section>
+                    <section><img src="/img/who-is-taiga/09.png"></section>
+                    <section><img src="/img/who-is-taiga/10.png"></section>
+                    <section><img src="/img/who-is-taiga/11.png"></section>
+                    <section><img src="/img/who-is-taiga/12.png"></section>
+                    <section><img src="/img/who-is-taiga/13.png"></section>
+                    <section><img src="/img/who-is-taiga/14.png"></section>
+                    <section><img src="/img/who-is-taiga/15.png"></section>
+                    <section><img src="/img/who-is-taiga/16.png"></section>
+                </section>
 
                 <!-- How is Taiga? -->
                 <section>
@@ -126,12 +133,15 @@
 
                 <!-- Did you say API? -->
                 <section>
-                    <section style="text-align: left" data-background="https://media.giphy.com/media/1310XHyc6yC6ju/giphy.gif">
-                        <h2>...Did you say <a href="http://taigaio.github.io/taiga-doc/dist/api.html" target="_blank">API</a>?...</h2>
+                    <section style="text-align: left"
+                             data-background="https://media.giphy.com/media/1310XHyc6yC6ju/giphy.gif">
+                        <h2>...Did you say <a href="http://taigaio.github.io/taiga-doc/dist/api.html"
+                                              target="_blank">API</a>?...</h2>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     </section>
 
-                    <section style="text-align: right" data-background="https://media.giphy.com/media/b9QBHfcNpvqDK/giphy.gif">
+                    <section style="text-align: right"
+                             data-background="https://media.giphy.com/media/b9QBHfcNpvqDK/giphy.gif">
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <h2>...let's start the Party!!...</h2>
                     </section>
@@ -144,7 +154,9 @@
                         <br>
                         <div>
                             <h4 class="fragment" data-autoslide="200">I want to...</h4>
-                            <p class="fragment">...draw graphics about the statistics of the issues of my project</p>
+                            <p class="fragment">
+                                ...draw graphics about the statistics of the issues of my project
+                            </p>
                         </div>
                         <div>
                             <h4 class="fragment" data-autoslide="200">But...</h4>
@@ -154,15 +166,16 @@
                         </div>
                     </section>
                     <section>
-						<h3>What about the API authentication?</h3>
+                        <h3>What about the API authentication?</h3>
                         <div class="fragment">
                             <p>Token Based Authentication: JSON Web Tokens (JWT)</p>
                             <br>
                             <div style="text-align: left">
                                 <h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#_standard_token_authentication">1.1.1.</a> Standard token authentication</h4>
-                                <p>To authenticate requests an http header called <i>"Authorization"</i> should be added. Its format should be:</p>
+                                <p>To authenticate requests an http header called <i>"Authorization"</i>
+                                   should be added. Its format should be:</p>
                                 <pre><code data-trim>
-    Authorization: Bearer ${AUTH_TOKEN}
+Authorization: Bearer ${AUTH_TOKEN}
                                 </code></pre>
                                 <p>This token <i>${AUTH_TOKEN}</i> can be received through the login API.</p>
                             </div>
@@ -170,13 +183,13 @@
                     </section>
                     <section>
                         <div style="text-align: left">
-							<h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#auth-normal-login">3.1.</a> Login</h4>
-							<p>To login a user send a POST request containing the following data:</p>
-							<ul>
-								<li><i>type</i>: with value <i>normal</i>
-								<li><i>username</i> (required): a valid username or email
-								<li><i>password</i> (required): the user passowrd
-							</ul>
+                            <h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#auth-normal-login">3.1.</a> Login</h4>
+                            <p>To login a user send a POST request containing the following data:</p>
+                            <ul>
+                                <li><i>type</i>: with value <i>normal</i>
+                                <li><i>username</i> (required): a valid username or email
+                                <li><i>password</i> (required): the user passowrd
+                            </ul>
                             <pre><code data-trim>
 curl -X POST \
   -H "Content-Type: application/json" \
@@ -187,13 +200,12 @@ curl -X POST \
       }' \
   https://api.taiga.io/api/v1/auth
                             </code></pre>
-						</div>
-
+                        </div>
                     </section>
                     <section>
                         <div style="text-align: left">
-                            <p>When the login is successful, the HTTP response is a <i>200 OK</i> and the response body is a JSON user
-							   auth detail object</p>
+                            <p>When the login is successful, the HTTP response is a <i>200 OK</i>
+                               and the response body is a JSON user auth detail object</p>
                             <pre><code data-trim>
 {
     "id": 7,
@@ -205,14 +217,15 @@ curl -X POST \
     (...)
 }
                             </code></pre>
-						</div>
+                        </div>
                     </section>
                     <section>
                         <h3>How can I get the data?</h3>
                         <br>
                         <div style="text-align: left">
                             <h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#_projects-issue-stats">10.11.</a> Issue stats</h4>
-                            <p>To get a project issue stats send a GET request specifying the <i>project_id</i> in the url:</p>
+                            <p>To get a project issue stats send a GET request specifying the
+                               <i>project_id</i> in the url:</p>
                             <pre><code data-trim>
 curl -X GET \
   -H "Content-Type: application/json" \
@@ -223,7 +236,8 @@ curl -X GET \
                     </section>
                     <section>
                         <div style="text-align: left">
-                            <p>The HTTP response is a <i>200 OK</i> and the response body is a JSON project issue stats object.</p>
+                            <p>The HTTP response is a <i>200 OK</i> and the response body is a JSON
+                               project issue stats object.</p>
                             <pre><code data-trim>
 {
     "total_issues": 668
@@ -313,6 +327,118 @@ curl -X GET \
                         </div>
                     </section>
                     <section>
+                        <div style="text-align: left">
+                            <h4><a href="https://taigaio.github.io/taiga-doc/dist/api.html#projects-list">10.1.</a> List Project</h4>
+                            <p>To list projects send a GET request with the following parameters:</p>
+
+                            <pre><code data-trim>
+curl -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ${AUTH_TOKEN}" \
+  https://api.taiga.io/api/v1/projects
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <p>The HTTP response is a <i>200 OK</i> and the response body is a JSON
+                               list of project list entry objects
+                            <pre><code data-trim>
+[
+    {
+        "anon_permissions": [],
+        "created_date": "2014-09-16T15:39:49+0000",
+        "creation_template": 1,
+        "default_issue_status": 574,
+        "default_issue_type": 127,
+        "default_points": 977,
+        "default_priority": 245,
+        "default_severity": 408,
+        "default_task_status": 411,
+        "default_us_status": 352,
+        "description": "Taiga",
+        "i_am_owner": true,
+        "id": 87,
+        "is_backlog_activated": false,
+        "is_issues_activated": true,
+        "is_kanban_activated": true,
+        "is_private": false,
+        "is_liked": true,
+        "is_watched": true,
+        "is_wiki_activated": true,
+        "members": [
+            2,
+              120,
+              (...)
+        ],
+        "modified_date": "2014-10-29T07:35:38+0000",
+        "my_permissions": [
+            "admin_project_values",
+            "view_tasks",
+            "view_milestones",
+            "view_project",
+            (...)
+        ],
+        "name": "AIL",
+        "owner": 2,
+        "public_permissions": [],
+        "slug": "ail",
+        "likes": 3,
+        "tags": null,
+        "tags_colors": {
+            "api": "#ce5c00",
+            "cuidador": "#204a87",
+            "gestor": "#73d216",
+            (...)
+        },
+        "total_milestones": 3,
+        "total_story_points": 20.0,
+        "videoconferences": "appear-in",
+        "videoconferences_salt": null,
+        "voters": 1,
+        "watchers": [
+            7,
+            (...)
+        ]
+    },
+    (...)
+]
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <p>The results can be filtered using the following parameters:
+                            <ul>
+                                <li><i>member:</i> user id</li>
+                                <li><i>members:</i> user ids</li>
+                            </ul>
+                            <pre><code data-trim>
+curl -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ${AUTH_TOKEN}" \
+  https://api.taiga.io/api/v1/projects?member=1
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <p>The results can be ordered using the <i>order_by</i> parameter
+                               with the values:</p>
+                            <ul>
+                              <li><i>memberships__user_order:</i> the project order specified
+                                  by the user</li>
+                            </ul>
+
+                            <pre><code data-trim>
+curl -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ${AUTH_TOKEN}" \
+  https://api.taiga.io/api/v1/projects?member=1&order_by=memberships__user_order
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
                         <h3>How can I draw the graphs?</h3>
                         <br>
                         <div class="fragment">
@@ -333,13 +459,16 @@ curl -X GET \
                             <p>HTTP for Humans</p>
                         </div>
                     </section>
-                    <section style="text-align: right" data-background="https://media.giphy.com/media/bAplZhiLAsNnG/giphy.gif">
+                    <section style="text-align: right"
+                             data-background="https://media.giphy.com/media/bAplZhiLAsNnG/giphy.gif">
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <h2>Let's build it...</h2>
                     </section>
 
                     <section>
                         <pre><code data-trim>
+#!/usr/bin/env python
+
 from urllib.parse import urljoin
 import sys
 import copy
@@ -360,7 +489,6 @@ API_HOST = "https://api.taiga.io/"
 URLS = {
     "auth": "/api/v1/auth",
     "projects": "/api/v1/projects",
-    "project":  "/api/v1/projects/{}",
     "project-issues-stats": "/api/v1/projects/{}/issues_stats",
 }
 
@@ -408,34 +536,38 @@ if __name__ == "__main__":
 
     # Draw graph: Issues by status
     chart = pygal.Pie(show_legend=False, style=style)
-    chart.title = 'Issues by Status in {}'.format(project["name"])
+    chart.title = "Issues by Status in {}".format(project["name"])
     for item in issues_stats["issues_per_status"].values():
         chart.add(item["name"], [{
             "value": item["count"],
             "color": item["color"]
         }])
     chart.render_to_file("../../output/chart_issues_by_status.svg")
+    print("Generate graph: 'Issues by Status in {}'".format(project["name"]))
 
     # Draw graph: Issues per Assigned to
     chart = pygal.HorizontalBar(style=style)
-    chart.title = 'Issues by Assignation in {}'.format(project["name"])
+    chart.title = "Issues by Assignation in {}".format(project["name"])
     for item in issues_stats["issues_per_assigned_to"].values():
         if item["count"] > 0:
             chart.add(item["name"], item["count"])
     chart.render_to_file("../../output/chart_issues_by_assigned_to.svg")
+    print("Generate graph: 'Issues by Assignation in {}'".format(project["name"]))
 
     # Draw graph: Issues open/closed last month
     today = datetime.today()
     last_four_weeks = [today - timedelta(days=x) for x in range(28, 0, -1)]
 
     chart = pygal.Dot(x_label_rotation=30, style=style)
-    chart.title = 'Issues Open/Closed last 4 weeks in {}'.format(project["name"])
-    chart.x_labels = [d.strftime('%Y %b %d') for d in last_four_weeks]
+    chart.title = "Issues Open/Closed last 4 weeks in {}".format(project["name"])
+    chart.x_labels = [d.strftime("%Y %b %d") for d in last_four_weeks]
     chart.add("Open",
               issues_stats["last_four_weeks_days"]["by_open_closed"]["open"])
     chart.add("Closed",
               issues_stats["last_four_weeks_days"]["by_open_closed"]["closed"])
     chart.render_to_file("../../output/chart_issues_open_close_last_4_weeks.svg")
+    print("Generate graph: 'Issues Open/Closed last 4 weeks in {}'".format(
+                                                            project["name"]))
                         </code></pre>
                     </section>
                     <section>
@@ -453,51 +585,51 @@ if __name__ == "__main__":
                 </section>
 
             </div>
-		</div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-		<script>
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+          // Full list of configuration options available at:
+          // https://github.com/hakimel/reveal.js#configuration
+          Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{
-                        src: 'lib/js/classList.js',
-                        condition: function() { return !document.body.classList; }
-                    },
-					{
-                        src: 'plugin/markdown/marked.js',
-                        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
-                    },
-					{
-                        src: 'plugin/markdown/markdown.js',
-                        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
-                    },
-					{
-                        src: 'plugin/highlight/highlight.js',
-                        async: true,
-                        condition: function() { return !!document.querySelector( 'pre code' ); },
-                        callback: function() { hljs.initHighlightingOnLoad(); }
-                    },
-					{
-                        src: 'plugin/zoom-js/zoom.js',
-                        async: true
-                    },
-					{
-                        src: 'plugin/notes/notes.js',
-                        async: true
-                    }
-				]
-			});
-		</script>
-	</body>
+            // Optional reveal.js plugins
+            dependencies: [
+                  {
+                    src: 'lib/js/classList.js',
+                    condition: function() { return !document.body.classList; }
+                  },
+                  {
+                    src: 'plugin/markdown/marked.js',
+                    condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+                  },
+                  {
+                    src: 'plugin/markdown/markdown.js',
+                    condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+                  },
+                  {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    condition: function() { return !!document.querySelector( 'pre code' ); },
+                    callback: function() { hljs.initHighlightingOnLoad(); }
+                  },
+                  {
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                  },
+                  {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                  }
+            ]
+          });
+        </script>
+      </body>
 </html>

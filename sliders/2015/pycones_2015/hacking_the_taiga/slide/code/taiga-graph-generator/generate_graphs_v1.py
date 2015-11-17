@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from urllib.parse import urljoin
 import sys
 import copy
@@ -18,7 +20,6 @@ API_HOST = "https://api.taiga.io/"
 URLS = {
     "auth": "/api/v1/auth",
     "projects": "/api/v1/projects",
-    "project":  "/api/v1/projects/{}",
     "project-issues-stats": "/api/v1/projects/{}/issues_stats",
 }
 
@@ -66,31 +67,34 @@ if __name__ == "__main__":
 
     # Draw graph: Issues by status
     chart = pygal.Pie(show_legend=False, style=style)
-    chart.title = 'Issues by Status in {}'.format(project["name"])
+    chart.title = "Issues by Status in {}".format(project["name"])
     for item in issues_stats["issues_per_status"].values():
         chart.add(item["name"], [{
             "value": item["count"],
             "color": item["color"]
         }])
     chart.render_to_file("../../output/chart_issues_by_status.svg")
+    print("Generate graph: 'Issues by Status in {}'".format(project["name"]))
 
     # Draw graph: Issues per Assigned to
     chart = pygal.HorizontalBar(style=style)
-    chart.title = 'Issues by Assignation in {}'.format(project["name"])
+    chart.title = "Issues by Assignation in {}".format(project["name"])
     for item in issues_stats["issues_per_assigned_to"].values():
         if item["count"] > 0:
             chart.add(item["name"], item["count"])
     chart.render_to_file("../../output/chart_issues_by_assigned_to.svg")
+    print("Generate graph: 'Issues by Assignation in {}'".format(project["name"]))
 
     # Draw graph: Issues open/closed last month
     today = datetime.today()
     last_four_weeks = [today - timedelta(days=x) for x in range(28, 0, -1)]
 
     chart = pygal.Dot(x_label_rotation=30, style=style)
-    chart.title = 'Issues Open/Closed last 4 weeks in {}'.format(project["name"])
-    chart.x_labels = [d.strftime('%Y %b %d') for d in last_four_weeks]
+    chart.title = "Issues Open/Closed last 4 weeks in {}".format(project["name"])
+    chart.x_labels = [d.strftime("%Y %b %d") for d in last_four_weeks]
     chart.add("Open",
               issues_stats["last_four_weeks_days"]["by_open_closed"]["open"])
     chart.add("Closed",
               issues_stats["last_four_weeks_days"]["by_open_closed"]["closed"])
     chart.render_to_file("../../output/chart_issues_open_close_last_4_weeks.svg")
+    print("Generate graph: 'Issues Open/Closed last 4 weeks in {}'".format(project["name"]))
