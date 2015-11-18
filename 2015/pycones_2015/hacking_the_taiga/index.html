@@ -109,24 +109,24 @@
                         <h4 class="fragment" data-autoslide="500">Back (API)</h4>
                         <p class="fragment">
                             <img src="img/how-is-taiga/python.png"
-                                 style="border: 0; background: none; height: 10rem;">
+                                 style="border: 0; background: none; height: 8rem;">
                             <img src="img/how-is-taiga/django.png"
-                                 style="border: 0; background: none; height: 10rem;">
+                                 style="border: 0; background: none; height: 8rem;">
                             <img src="img/how-is-taiga/postgresql.png"
-                                 style="border: 0; background: none; height: 10rem;">
+                                 style="border: 0; background: none; height: 8rem;">
                             <img src="img/how-is-taiga/celery.png"
-                                 style="border: 0; background: none; height: 10rem;">
+                                 style="border: 0; background: none; height: 8rem;">
                             <img src="img/how-is-taiga/rabbitmq.png"
-                                 style="border: 0; background: none; height: 10rem;">
+                                 style="border: 0; background: none; height: 8rem;">
                         </p>
                         <h4 class="fragment" data-autoslide="500">Front (SPA)</h4>
                         <p class="fragment">
                             <img src="img/how-is-taiga/angularjs.png"
-                                 style="border: 0; background: none; height: 10rem;">
+                                 style="border: 0; background: none; height: 8rem;">
                             <img src="img/how-is-taiga/coffeescript.png"
-                                 style="border: 0; background: none; height: 10rem;">
+                                 style="border: 0; background: none; height: 8rem;">
                             <img src="img/how-is-taiga/sass.png"
-                                 style="border: 0; background: none; height: 10rem;">
+                                 style="border: 0; background: none; height: 8rem;">
                         </p>
                     </section>
                 </section>
@@ -174,7 +174,7 @@
                                 <h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#_standard_token_authentication">1.1.1.</a> Standard token authentication</h4>
                                 <p>To authenticate requests an http header called <i>"Authorization"</i>
                                    should be added. Its format should be:</p>
-                                <pre><code data-trim>
+                                <pre><code data-trim class="bash">
 Authorization: Bearer ${AUTH_TOKEN}
                                 </code></pre>
                                 <p>This token <i>${AUTH_TOKEN}</i> can be received through the login API.</p>
@@ -190,7 +190,7 @@ Authorization: Bearer ${AUTH_TOKEN}
                                 <li><i>username</i> (required): a valid username or email
                                 <li><i>password</i> (required): the user passowrd
                             </ul>
-                            <pre><code data-trim>
+                            <pre><code data-trim class="bash">
 curl -X POST \
   -H "Content-Type: application/json" \
   -d '{
@@ -206,7 +206,7 @@ curl -X POST \
                         <div style="text-align: left">
                             <p>When the login is successful, the HTTP response is a <i>200 OK</i>
                                and the response body is a JSON user auth detail object</p>
-                            <pre><code data-trim>
+                            <pre><code data-trim class="json">
 {
     "id": 7,
     "is_active": true,
@@ -226,7 +226,7 @@ curl -X POST \
                             <h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#_projects-issue-stats">10.11.</a> Issue stats</h4>
                             <p>To get a project issue stats send a GET request specifying the
                                <i>project_id</i> in the url:</p>
-                            <pre><code data-trim>
+                            <pre><code data-trim class="bash">
 curl -X GET \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${AUTH_TOKEN}" \
@@ -238,7 +238,7 @@ curl -X GET \
                         <div style="text-align: left">
                             <p>The HTTP response is a <i>200 OK</i> and the response body is a JSON
                                project issue stats object.</p>
-                            <pre><code data-trim>
+                            <pre><code data-trim class="json">
 {
     "total_issues": 668
     "opened_issues": 108,
@@ -331,7 +331,7 @@ curl -X GET \
                             <h4><a href="https://taigaio.github.io/taiga-doc/dist/api.html#projects-list">10.1.</a> List Project</h4>
                             <p>To list projects send a GET request with the following parameters:</p>
 
-                            <pre><code data-trim>
+                            <pre><code data-trim class="bash">
 curl -X GET \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${AUTH_TOKEN}" \
@@ -343,7 +343,7 @@ curl -X GET \
                         <div style="text-align: left">
                             <p>The HTTP response is a <i>200 OK</i> and the response body is a JSON
                                list of project list entry objects
-                            <pre><code data-trim>
+                            <pre><code data-trim class="json">
 [
     {
         "anon_permissions": [],
@@ -413,7 +413,7 @@ curl -X GET \
                                 <li><i>member:</i> user id</li>
                                 <li><i>members:</i> user ids</li>
                             </ul>
-                            <pre><code data-trim>
+                            <pre><code data-trim class="bash">
 curl -X GET \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${AUTH_TOKEN}" \
@@ -430,7 +430,7 @@ curl -X GET \
                                   by the user</li>
                             </ul>
 
-                            <pre><code data-trim>
+                            <pre><code data-trim class="bash">
 curl -X GET \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${AUTH_TOKEN}" \
@@ -466,7 +466,7 @@ curl -X GET \
                     </section>
 
                     <section>
-                        <pre><code data-trim>
+                        <pre><code data-trim class="python">
 #!/usr/bin/env python
 
 from urllib.parse import urljoin
@@ -603,7 +603,7 @@ if __name__ == "__main__":
                         <p>A Python module for communicating with the Taiga API</p>
                     </section>
                     <section>
-                        <pre><code data-trim>
+                        <pre><code data-trim class="python">
 #!/usr/bin/env python
 
 import getpass
@@ -715,7 +715,7 @@ if __name__ == "__main__":
                         </div>
                     </section>
                     <section>
-                        <pre><code data-trim>
+                        <pre><code data-trim class="python">
 #!/usr/bin/env python
 
 from taiga import TaigaAPI
@@ -740,11 +740,12 @@ def cli(username, password):
 @click.option("--description", "-d", help="issue description")
 @click.option("--attachments", "-a", multiple=True, help="issue description")
 def add_issue(project_slug, subject, description, attachments):
+    """Create a new issue."""
     click.echo("  Getting project '{}'...".format(project_slug))
     project = api.projects.list().get(slug=project_slug)
 
     click.echo("  Creatting issue...'{}'".format(subject))
-    description = description or click.edit('...write description here..') or ""
+    description = description or click.edit("...write description here..") or ""
     issue = project.add_issue(subject,
                               project.default_priority,
                               project.default_issue_status,
@@ -763,6 +764,193 @@ if __name__ == "__main__":
     cli()
                         </code></pre>
                     </section>
+                    <section>
+						<pre><code data-trim class="bash">
+./taiga-ci
+						</code></pre>
+						<pre>
+Usage: taiga-ci [OPTIONS] COMMAND [ARGS]...
+
+  The taiga command interface.
+
+Options:
+  -u, --username TEXT  taiga.io useername or email
+  -p, --password TEXT  taiga.io password
+  --help               Show this message and exit.
+
+Commands:
+  add_issue  Create a new issue.
+						</pre>
+                    </section>
+                    <section>
+						<pre><code data-trim class="bash">
+./taiga-ci add_issue --help
+						</code></pre>
+						<pre>
+Username: bameda
+Password: 
+Usage: taiga-ci add_issue [OPTIONS]
+
+  Create a new issue.
+
+Options:
+  -p, --project TEXT      project slug
+  -s, --subject TEXT      issue subject
+  -d, --description TEXT  issue description
+  -a, --attachments TEXT  issue description
+  --help                  Show this message and exit.
+						</pre>
+                    </section>
+                    <section>
+						<pre><code data-trim class="bash">
+./taiga-ci add_issue -p sandbox \
+                     -s "Test add issue cmd" \
+                     -a ~/sample1.txt \
+                     -a ~/sample2.txt
+						</code></pre>
+						<pre>
+Username: bameda
+Password:
+  Getting project 'sandbox'...
+  Creatting issue...'Test add issue cmd'
+  Attaching files...  [####################################]  100%
+						</pre>
+                    </section>
+                </section>
+
+				<!-- community examples -->
+                <section>
+                    <section>
+						<h2>Tell me more...</h2>
+                    </section>
+                    <section>
+                        <h3>You can create a curses client</h3>
+                        <h4>with</h4>
+                        <img src="img/community-examples/urwid-logo.png"
+                             style="border: 0; background: none;">
+                    </section>
+                    <section>
+                        <img src="img/community-examples/taiga-ncurses-0.png"
+                             style="border: 0; background: none;">
+                    </section>
+                    <section>
+                        <img src="img/community-examples/taiga-ncurses-1.png"
+                             style="border: 0; background: none;">
+                    </section>
+                    <section>
+                        <img src="img/community-examples/taiga-ncurses-2.png"
+                             style="border: 0; background: none;">
+                    </section>
+                    <section>
+                        <h2><a href="https://github.com/taigaio/taiga-ncurses">taigaio/taiga-ncurses</a></h2>
+                        <p>Taiga curses client for terminal lovers ;-)</p>
+                    </section>
+                    <section>
+                        <h3>...much more...</h3>
+                        <br>
+                        <div>
+                            <h2>
+                                <a href="https://github.com/rochsystems/sentry-taiga">
+                                    rochsystems/sentry-taiga
+                                </a>
+                            </h2>
+                            <p>Creates issues in Taiga from Sentry exceptions.</p>
+                        </div>
+                        <br>
+                        <br>
+                        <div>
+                            <h2>
+                                <a href="https://github.com/ansible/ansible-modules-extras/pull/678/files">
+                                    ansible/taiga_issue module
+                                </a>
+                            </h2>
+                            <p>create issues from Ansible (by <a href="https://github.com/lekum/">lekum</a>)<p>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <h3>...and what's about <a href="https://taiga.io/support/webhooks/">webhooks</a>?</h3>
+                </section>
+                <section>
+                    <section>
+                        <h3>Can I add new features?</h3>
+                        <p>
+                            <span class="fragment" data-autoslide="200">Yes... </span>
+                            <span class="fragment">creating plugins...</span>
+                        </p>
+                        <p>
+                            <ul>
+                                <li class="fragment" data-autoslide="200">
+                                    <a href="https://github.com/taigaio/taiga-contrib-github-auth">
+                                        taigaio / taiga-contrib-github-auth
+                                    </a>
+                                </li>
+                                <li class="fragment" data-autoslide="200">
+                                    <a href="https://github.com/agolden/taiga-contrib-google-auth">
+                                        agolden / taiga-contrib-google-auth
+                                    </a>
+                                </li>
+                                <li class="fragment" data-autoslide="200">
+                                    <a href="https://github.com/ensky/taiga-contrib-ldap-auth">
+                                        ensky / taiga-contrib-ldap-auth
+                                    </a>
+                                </li>
+                                <li class="fragment" data-autoslide="200">
+                                    <a href="https://github.com/alexanderstyre/taiga-contrib-dropbox">
+                                        alexanderstyre / taiga-contrib-dropbox
+                                    </a>
+                                </li>
+                                <li class="fragment" data-autoslide="200">
+                                    <a href="https://github.com/taigaio/taiga-contrib-slack">
+                                        taigaio / taiga-contrib-slack
+                                    </a>
+                                </li>
+                                <li class="fragment" data-autoslide="200">
+                                    <a href="https://github.com/taigaio/taiga-contrib-gogs">
+                                        taigaio / taiga-contrib-gogs
+                                    </a>
+                                </li>
+                                <li class="fragment">
+                                    <a href="https://github.com/taigaio/taiga-contrib-letschat">
+                                        taigaio / taiga-contrib-letschat
+                                    </a>
+                                </li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>...or you can <a href="https://taiga.io/support/how-can-i-contribute-to-taiga/">contribute</a> too with...</h3>
+                        <ul>
+                            <li class="fragment" data-autoslide="200">Code patches</li>
+                            <li class="fragment" data-autoslide="200">Documentation improvements</li>
+                            <li class="fragment" data-autoslide="200">Translations</li>
+                            <li class="fragment" data-autoslide="200">Bug reports</li>
+                            <li class="fragment" data-autoslide="200">Patch reviews</li>
+                            <li class="fragment">UI enhancements</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <!-- Thanks -->
+                <section style="text-align: left"
+                         data-background="https://media.giphy.com/media/OmLd54mZdoDLi/giphy.gif">
+                    <h2>Thank you!!!</h2>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                </section>
+
+                <!-- Cover End -->
+                <section style="text-align: right" data-background="img/cover/botanical-taiga-bg.png">
+                    <h1>Hacking the <a href="https://taiga.io">Taiga</a></h1>
+                    <p>
+                        <small>
+                            by
+                            &nbsp;<a href="http://kaleidos.net/FFF8E7/">David Barragán Merino</a> /
+                            &nbsp;<a href="http://twitter.com/bameda">@bameda</a>
+                        </small>
+                    </p>
+                    <br><br><br>
+                    <img src="img/cover/pycones-logo.png"
+                         style="border: 0; background: none; height: 6rem;">
                 </section>
             </div>
         </div>
