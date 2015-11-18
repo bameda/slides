@@ -97,12 +97,14 @@ module.exports = function(grunt) {
 		},
 
 		zip: {
-			'reveal-js-presentation.zip': [
+			'bameda-pycones2015-hacking_the_taiga.zip': [
 				'index.html',
 				'css/**',
 				'js/**',
 				'lib/**',
-				'images/**',
+				'img/**',
+				'output/**',
+				'code/**',
 				'plugin/**',
 				'**.md'
 			]
