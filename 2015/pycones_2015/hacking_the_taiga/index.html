@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Hacking the Taiga</title>
+
+        <meta name="description" content="Tecnicas para hackear Taiga.">
+        <meta name="author" content="David Barragán Merino">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/taiga.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match(/print-pdf/gi)? 'css/print/pdf.css':'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <!-- Cover -->
+                <section style="text-align: right" data-background="img/cover/botanical-taiga-bg.png">
+                    <h1>Hacking the <a href="https://taiga.io">Taiga</a></h1>
+                    <p>
+                        <small>
+                            by
+                            &nbsp;<a href="http://kaleidos.net/FFF8E7/">David Barragán Merino</a> /
+                            &nbsp;<a href="http://twitter.com/bameda">@bameda</a>
+                        </small>
+                    </p>
+                    <br><br><br>
+                    <img src="img/cover/pycones-logo.png"
+                         style="border: 0; background: none; height: 6rem;">
+                </section>
+
+                <!-- Who am I? -->
+                <section style="text-align: left" data-background="img/who-am-i/david-bg.png">
+                    <h2>Hi!</h2>
+                    <br />
+                    <h4 class="fragment" data-autoslide="200">David Barragán Merino</h4>
+                    <p class="fragment" data-autoslide="200">
+                        <a href="http://kaleidos.net/FFF8E7/">#FFF8E7</a> at Kaleidos
+                    </p>
+                    <p class="fragment" data-autoslide="200">
+                        <a href="https://tree.taiga.io/humans.txt">Grouchy Smurf</a> at Taiga
+                    </p>
+                    <br>
+                    <p class="fragment" data-autoslide="200">
+                        <a href="https://github.com/bameda">bameda</a> on Github
+                    </p>
+                    <p class="fragment">
+                        <a href="https://twitter.com/bameda">@bameda</a> on Twitter
+                    </p>
+                </section>
+
+                <!-- Who is Taiga? -->
+                <section>
+                    <section>
+                        <h2 data-autoslide="500">What's Taiga?</h2>
+                        <img class="fragment"
+                             src="img/who-is-taiga/taiga-logo-color-moustach.png"
+                             style="border: 0; background: none;">
+                    </section>
+                    <section data-background-transition="convex">
+                        <img src="img/who-is-taiga/01.png">
+                    </section>
+                    <section><img src="img/who-is-taiga/02.png"></section>
+                    <section><img src="img/who-is-taiga/03.png"></section>
+                    <section><img src="img/who-is-taiga/04.png"></section>
+                    <section><img src="img/who-is-taiga/05.png"></section>
+                    <section><img src="img/who-is-taiga/06.png"></section>
+                    <section><img src="img/who-is-taiga/07.png"></section>
+                    <section><img src="img/who-is-taiga/08.png"></section>
+                    <section><img src="img/who-is-taiga/09.png"></section>
+                    <section><img src="img/who-is-taiga/10.png"></section>
+                    <section><img src="img/who-is-taiga/11.png"></section>
+                    <section><img src="img/who-is-taiga/12.png"></section>
+                    <section><img src="img/who-is-taiga/13.png"></section>
+                    <section><img src="img/who-is-taiga/14.png"></section>
+                    <section><img src="img/who-is-taiga/15.png"></section>
+                    <section><img src="img/who-is-taiga/16.png"></section>
+                </section>
+
+                <!-- How is Taiga? -->
+                <section>
+                    <section>
+                        <h2>How it's made?</h2>
+                        <br>
+                        <h4 class="fragment" data-autoslide="500">Back (API)</h4>
+                        <p class="fragment">
+                            <img src="img/how-is-taiga/python.png"
+                                 style="border: 0; background: none; height: 10rem;">
+                            <img src="img/how-is-taiga/django.png"
+                                 style="border: 0; background: none; height: 10rem;">
+                            <img src="img/how-is-taiga/postgresql.png"
+                                 style="border: 0; background: none; height: 10rem;">
+                            <img src="img/how-is-taiga/celery.png"
+                                 style="border: 0; background: none; height: 10rem;">
+                            <img src="img/how-is-taiga/rabbitmq.png"
+                                 style="border: 0; background: none; height: 10rem;">
+                        </p>
+                        <h4 class="fragment" data-autoslide="500">Front (SPA)</h4>
+                        <p class="fragment">
+                            <img src="img/how-is-taiga/angularjs.png"
+                                 style="border: 0; background: none; height: 10rem;">
+                            <img src="img/how-is-taiga/coffeescript.png"
+                                 style="border: 0; background: none; height: 10rem;">
+                            <img src="img/how-is-taiga/sass.png"
+                                 style="border: 0; background: none; height: 10rem;">
+                        </p>
+                    </section>
+                </section>
+
+                <!-- Did you say API? -->
+                <section>
+                    <section style="text-align: left"
+                             data-background="https://media.giphy.com/media/1310XHyc6yC6ju/giphy.gif">
+                        <h2>...Did you say <a href="http://taigaio.github.io/taiga-doc/dist/api.html"
+                                              target="_blank">API</a>?...</h2>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </section>
+
+                    <section style="text-align: right"
+                             data-background="https://media.giphy.com/media/b9QBHfcNpvqDK/giphy.gif">
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <h2>...let's start the Party!!...</h2>
+                    </section>
+                </section>
+
+                <!-- Example 1: Drawing some graphs... -->
+                <section>
+                    <section>
+                        <h2>Drawing graphs</h2>
+                        <br>
+                        <div>
+                            <h4 class="fragment" data-autoslide="200">I want to...</h4>
+                            <p class="fragment">
+                                ...draw graphics about the statistics of the issues of my project
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="fragment" data-autoslide="200">But...</h4>
+                            <p class="fragment" data-autoslide="100">What about the API authentication?</p>
+                            <p class="fragment" data-autoslide="100">How can I get the data?</p>
+                            <p class="fragment">How can I draw the graphs?</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>What about the API authentication?</h3>
+                        <div class="fragment">
+                            <p>Token Based Authentication: JSON Web Tokens (JWT)</p>
+                            <br>
+                            <div style="text-align: left">
+                                <h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#_standard_token_authentication">1.1.1.</a> Standard token authentication</h4>
+                                <p>To authenticate requests an http header called <i>"Authorization"</i>
+                                   should be added. Its format should be:</p>
+                                <pre><code data-trim>
+Authorization: Bearer ${AUTH_TOKEN}
+                                </code></pre>
+                                <p>This token <i>${AUTH_TOKEN}</i> can be received through the login API.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#auth-normal-login">3.1.</a> Login</h4>
+                            <p>To login a user send a POST request containing the following data:</p>
+                            <ul>
+                                <li><i>type</i>: with value <i>normal</i>
+                                <li><i>username</i> (required): a valid username or email
+                                <li><i>password</i> (required): the user passowrd
+                            </ul>
+                            <pre><code data-trim>
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+        "type": "normal",
+        "username": "'${USERNAME}'",
+        "password": "'${PASSWORD}'"
+      }' \
+  https://api.taiga.io/api/v1/auth
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <p>When the login is successful, the HTTP response is a <i>200 OK</i>
+                               and the response body is a JSON user auth detail object</p>
+                            <pre><code data-trim>
+{
+    "id": 7,
+    "is_active": true,
+    "username": "beta.tester",
+    "email": "beta.testing@taiga.io",
+    "full_name": "Beta testing",
+    "auth_token": "eyJ1c2VyX2F1dGhlbnRpY2F0aW9uX2lkIjo3fq:1XmPud:LKXVD9Z0rmHJjiyy0m4YaaHlQS1",
+    (...)
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>How can I get the data?</h3>
+                        <br>
+                        <div style="text-align: left">
+                            <h4><a href="http://taigaio.github.io/taiga-doc/dist/api.html#_projects-issue-stats">10.11.</a> Issue stats</h4>
+                            <p>To get a project issue stats send a GET request specifying the
+                               <i>project_id</i> in the url:</p>
+                            <pre><code data-trim>
+curl -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ${AUTH_TOKEN}" \
+  https://api.taiga.io/api/v1/projects/1/issues_stats
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <p>The HTTP response is a <i>200 OK</i> and the response body is a JSON
+                               project issue stats object.</p>
+                            <pre><code data-trim>
+{
+    "total_issues": 668
+    "opened_issues": 108,
+    "closed_issues": 560,
+    "issues_per_type": {
+        "1": {
+            "id": 1,
+            "name": "Bug"
+            "color": "#f57900",
+            "count": 501,
+        },
+        (...)
+    },
+    "issues_per_status": {
+        "1": {
+            "id": 1,
+            "name": "New"
+            "color": "#8C2318",
+            "count": 90,
+        },
+        (...)
+    },
+    "issues_per_owner": {
+        "11": {
+            "id": 11,
+            "name": "Anler Hern\u00e1ndez Peral",
+            "username": "anler.hernandez"
+            "color": "#8f0030",
+            "count": 1,
+        },
+        (...)
+    },
+    "issues_per_assigned_to": {
+        "0": {
+            "id": 0,
+            "name": "Unassigned",
+            "username": "Unassigned"
+            "color": "black",
+            "count": 185,
+        },
+        (...)
+    },
+    "issues_per_priority": {
+        "1": {
+            "id": 1,
+            "name": "Low"
+            "color": "#888a85",
+            "count": 50,
+        },
+        (...)
+    },
+    "issues_per_severity": {
+        "1": {
+            "id": 1,
+            "name": "Wishlist"
+            "color": "#888a85",
+            "count": 9,
+        },
+        (...)
+    },
+    "last_four_weeks_days": {
+        "by_open_closed": {
+            "closed": [8, 3, 2, 0, (...)],
+            "open": [7, 3, 2, 0, (...)],
+        },
+        "by_priority": {
+            "1": {
+                "id": 1,
+                "name": "Low"
+                "color": "#888a85",
+                "data": [18, 17, 17, (...)],
+            },
+        },
+        "by_severity": {
+            "1": {
+                "id": 1,
+                "name": "Wishlist"
+                "color": "#888a85",
+                "data": [8, 8, 8, (...)],
+            },
+        },
+        "by_status": {(...)}
+    },
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <h4><a href="https://taigaio.github.io/taiga-doc/dist/api.html#projects-list">10.1.</a> List Project</h4>
+                            <p>To list projects send a GET request with the following parameters:</p>
+
+                            <pre><code data-trim>
+curl -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ${AUTH_TOKEN}" \
+  https://api.taiga.io/api/v1/projects
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <p>The HTTP response is a <i>200 OK</i> and the response body is a JSON
+                               list of project list entry objects
+                            <pre><code data-trim>
+[
+    {
+        "anon_permissions": [],
+        "created_date": "2014-09-16T15:39:49+0000",
+        "creation_template": 1,
+        "default_issue_status": 574,
+        "default_issue_type": 127,
+        "default_points": 977,
+        "default_priority": 245,
+        "default_severity": 408,
+        "default_task_status": 411,
+        "default_us_status": 352,
+        "description": "Taiga",
+        "i_am_owner": true,
+        "id": 87,
+        "is_backlog_activated": false,
+        "is_issues_activated": true,
+        "is_kanban_activated": true,
+        "is_private": false,
+        "is_liked": true,
+        "is_watched": true,
+        "is_wiki_activated": true,
+        "members": [
+            2,
+              120,
+              (...)
+        ],
+        "modified_date": "2014-10-29T07:35:38+0000",
+        "my_permissions": [
+            "admin_project_values",
+            "view_tasks",
+            "view_milestones",
+            "view_project",
+            (...)
+        ],
+        "name": "AIL",
+        "owner": 2,
+        "public_permissions": [],
+        "slug": "ail",
+        "likes": 3,
+        "tags": null,
+        "tags_colors": {
+            "api": "#ce5c00",
+            "cuidador": "#204a87",
+            "gestor": "#73d216",
+            (...)
+        },
+        "total_milestones": 3,
+        "total_story_points": 20.0,
+        "videoconferences": "appear-in",
+        "videoconferences_salt": null,
+        "voters": 1,
+        "watchers": [
+            7,
+            (...)
+        ]
+    },
+    (...)
+]
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <p>The results can be filtered using the following parameters:
+                            <ul>
+                                <li><i>member:</i> user id</li>
+                                <li><i>members:</i> user ids</li>
+                            </ul>
+                            <pre><code data-trim>
+curl -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ${AUTH_TOKEN}" \
+  https://api.taiga.io/api/v1/projects?member=1
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="text-align: left">
+                            <p>The results can be ordered using the <i>order_by</i> parameter
+                               with the values:</p>
+                            <ul>
+                              <li><i>memberships__user_order:</i> the project order specified
+                                  by the user</li>
+                            </ul>
+
+                            <pre><code data-trim>
+curl -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ${AUTH_TOKEN}" \
+  https://api.taiga.io/api/v1/projects?member=1&order_by=memberships__user_order
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>How can I draw the graphs?</h3>
+                        <br>
+                        <div class="fragment">
+                            <embed src="img/drawing-graphs/pygal1.svg"
+                                 style="border: 0; background: none;">
+                            <embed src="img/drawing-graphs/pygal2.svg"
+                                 style="border: 0; background: none;">
+                            <embed src="img/drawing-graphs/pygal3.svg"
+                                 style="border: 0; background: none;">
+                            <h3>PyGal</h3>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <img src="img/drawing-graphs/requests.png"
+                                 style="border: 0; background: none;">
+                            <h3>Requests</h3>
+                            <p>HTTP for Humans</p>
+                        </div>
+                    </section>
+                    <section style="text-align: right"
+                             data-background="https://media.giphy.com/media/bAplZhiLAsNnG/giphy.gif">
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <h2>Let's build it...</h2>
+                    </section>
+
+                    <section>
+                        <pre><code data-trim>
+#!/usr/bin/env python
+
+from urllib.parse import urljoin
+import sys
+import copy
+import getpass
+from datetime import datetime, timedelta
+
+import requests
+import pygal
+
+
+BASE_HEADERS = {
+    "content-type": "application/json; charset: utf8",
+    "X-DISABLE-PAGINATION": "true",
+}
+
+API_HOST = "https://api.taiga.io/"
+
+URLS = {
+    "auth": "/api/v1/auth",
+    "projects": "/api/v1/projects",
+    "project-issues-stats": "/api/v1/projects/{}/issues_stats",
+}
+
+
+if __name__ == "__main__":
+    headers = copy.deepcopy(BASE_HEADERS)
+
+    # Login
+    username = input("Type your username or email:\n> ")
+    password = getpass.getpass("Type your password:\n> ")
+
+    url = urljoin(API_HOST, URLS["auth"])
+    data = {
+        "username": username,
+        "password": password,
+        "type": "normal"
+    }
+    response = requests.post(url, json=data, headers=headers)
+    me = response.json()
+
+    headers["Authorization"] = "Bearer {}".format(me["auth_token"])
+
+    # List all my projects
+    url = urljoin(API_HOST, URLS["projects"])
+    params = {
+        "member": me["id"]
+    }
+    response = requests.get(url, params=params, headers=headers)
+    projects = response.json()
+
+    project_list_display = "\n".join(
+        ["  {} - {}".format(i, p["name"]) for i, p in enumerate(projects)]
+    )
+    index = int(input("Select project: \n{}\n> ".format(project_list_display)))
+    project = projects[index]
+
+    # Get issues stats data
+    url = urljoin(API_HOST, URLS["project-issues-stats"].format(project["id"]))
+    response = requests.get(url, headers=headers)
+    issues_stats = response.json()
+
+    # GRAPHS
+    style = pygal.style.NeonStyle()
+    style.background = "transparent"
+
+    # Draw graph: Issues by status
+    chart = pygal.Pie(show_legend=False, style=style)
+    chart.title = "Issues by Status in {}".format(project["name"])
+    for item in issues_stats["issues_per_status"].values():
+        chart.add(item["name"], [{
+            "value": item["count"],
+            "color": item["color"]
+        }])
+    chart.render_to_file("../../output/chart_issues_by_status.svg")
+    print("Generate graph: 'Issues by Status in {}'".format(project["name"]))
+
+    # Draw graph: Issues per Assigned to
+    chart = pygal.HorizontalBar(style=style)
+    chart.title = "Issues by Assignation in {}".format(project["name"])
+    for item in issues_stats["issues_per_assigned_to"].values():
+        if item["count"] > 0:
+            chart.add(item["name"], item["count"])
+    chart.render_to_file("../../output/chart_issues_by_assigned_to.svg")
+    print("Generate graph: 'Issues by Assignation in {}'".format(project["name"]))
+
+    # Draw graph: Issues open/closed last month
+    today = datetime.today()
+    last_four_weeks = [today - timedelta(days=x) for x in range(28, 0, -1)]
+
+    chart = pygal.Dot(x_label_rotation=30, style=style)
+    chart.title = "Issues Open/Closed last 4 weeks in {}".format(project["name"])
+    chart.x_labels = [d.strftime("%Y %b %d") for d in last_four_weeks]
+    chart.add("Open",
+              issues_stats["last_four_weeks_days"]["by_open_closed"]["open"])
+    chart.add("Closed",
+              issues_stats["last_four_weeks_days"]["by_open_closed"]["closed"])
+    chart.render_to_file("../../output/chart_issues_open_close_last_4_weeks.svg")
+    print("Generate graph: 'Issues Open/Closed last 4 weeks in {}'".format(
+                                                            project["name"]))
+                        </code></pre>
+                    </section>
+                    <section>
+                        <embed src="output/chart_issues_by_status.svg"
+                               style="border: 0; background: none;">
+                    </section>
+                    <section>
+                        <embed src="output/chart_issues_by_assigned_to.svg"
+                               style="border: 0; background: none;">
+                    </section>
+                    <section>
+                        <embed src="output/chart_issues_open_close_last_4_weeks.svg"
+                               style="border: 0; background: none;">
+                    </section>
+
+                    <section>
+                        <img src="https://media.giphy.com/media/HvZtZTam9doC4/giphy.gif">
+                        <h2>...you can do it better!!!</h2>
+                    </section>
+                    <section style="text-align: left"
+                             data-background="https://media.giphy.com/media/MEtSuIu6qu0HC/giphy.gif">
+                        <h2>But you are not alone...</h2>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </section>
+                    <section style="text-align: right"
+                             data-background="https://media.giphy.com/media/CObqVWt7S889O/giphy.gif">
+                        <h2>...use the community.</h2>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </section>
+
+                    <section>
+                        <h2><a href="https://github.com/nephila/python-taiga">nephila/python-taiga</a></h2>
+                        <p>A Python module for communicating with the Taiga API</p>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+#!/usr/bin/env python
+
+import getpass
+from datetime import datetime, timedelta
+
+from taiga import TaigaAPI
+import pygal
+
+
+API_HOST = "https://api.taiga.io/"
+
+
+if __name__ == "__main__":
+    api = TaigaAPI(host=API_HOST)
+
+    # Login
+    username = input("Type your username or email:\n> ")
+    password = getpass.getpass("Type your password:\n> ")
+
+    api.auth(username=username, password=password)
+    me = api.me()
+
+    # List all my projects
+    projects = api.projects.list(member=me.id)
+
+    project_list_display = "\n".join(
+        ["  {} - {}".format(i, p.name) for i, p in enumerate(projects)]
+    )
+    index = int(input("Select project: \n{}\n> ".format(project_list_display)))
+    project = projects[index]
+
+    # Get issues stats data
+    issues_stats = project.issues_stats()
+
+    # GRAPHS
+    style = pygal.style.NeonStyle()
+    style.background = "transparent"
+
+    # Draw graph: Issues by status
+    chart = pygal.Pie(show_legend=False, style=style)
+    chart.title = "Issues by Status in {}".format(project.name)
+    for item in issues_stats["issues_per_status"].values():
+        chart.add(item["name"], [{
+            "value": item["count"],
+            "color": item["color"]
+        }])
+    chart.render_to_file("../../output/chart_issues_by_status.v2.svg")
+    print("Generate graph: 'Issues by Status in {}'".format(project.name))
+
+    # Draw graph: Issues per Assigned to
+    chart = pygal.HorizontalBar(style=style)
+    chart.title = "Issues by Assignation in {}".format(project.name)
+    for item in issues_stats["issues_per_assigned_to"].values():
+        if item["count"] > 0:
+            chart.add(item["name"], item["count"])
+    chart.render_to_file("../../output/chart_issues_by_assigned_to.v2.svg")
+    print("Generate graph: 'Issues by Assignation in {}'".format(project.name))
+
+    # Draw graph: Issues open/closed last month
+    today = datetime.today()
+    last_four_weeks = [today - timedelta(days=x) for x in range(28, 0, -1)]
+
+    chart = pygal.Dot(x_label_rotation=30, style=style)
+    chart.title = "Issues Open/Closed last 4 weeks in {}".format(project.name)
+    chart.x_labels = [d.strftime("%Y %b %d") for d in last_four_weeks]
+    chart.add("Open",
+              issues_stats["last_four_weeks_days"]["by_open_closed"]["open"])
+    chart.add("Closed",
+              issues_stats["last_four_weeks_days"]["by_open_closed"]["closed"])
+    chart.render_to_file(
+        "../../output/chart_issues_open_close_last_4_weeks.v2.svg")
+    print("Generate graph: 'Issues Open/Closed last 4 weeks in {}'".format(
+                                                               project.name))
+                        </code></pre>
+                    </section>
+                    <section>
+                        <embed src="output/chart_issues_by_status.v2.svg"
+                               style="border: 0; background: none;">
+                    </section>
+                    <section>
+                        <embed src="output/chart_issues_by_assigned_to.v2.svg"
+                               style="border: 0; background: none;">
+                    </section>
+                    <section>
+                        <embed src="output/chart_issues_open_close_last_4_weeks.v2.svg"
+                               style="border: 0; background: none;">
+                    </section>
+                </section>
+
+                <!-- Taiga command line -->
+                <section>
+                    <section>
+                        <h2>Create issues from the terminal</h2>
+                        <br>
+                        <div>
+                            <h4 class="fragment" data-autoslide="200">I want to...</h4>
+                            <p class="fragment">...create issues in a Taiga project with a command
+                                                from my terminal.</p>
+                            </p>
+
+                            <h4 class="fragment" data-autoslide="200">We use..</h4>
+                            <p class="fragment" >
+                                <a href="https://github.com/nephila/python-taiga">nephila/python-taiga</a>
+                            </p>
+                            <h3 class="fragment" data-autoslide="200">+</h3>
+                            <a class="fragment" href="http://click.pocoo.org/">
+                                <img src="img/taiga-ci/click.png" style="border: 0; background: none;">
+                            </a>
+                        </div>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+#!/usr/bin/env python
+
+from taiga import TaigaAPI
+import click
+
+API_HOST = "https://api.taiga.io/"
+api = TaigaAPI(host=API_HOST)
+
+
+@click.group()
+@click.option("--username", "-u", prompt=True, help="taiga.io useername or email")
+@click.option("--password", "-p", prompt=True, hide_input=True,
+              help="taiga.io password")
+def cli(username, password):
+    """The taiga command interface."""
+    api.auth(username=username, password=password)
+
+
+@cli.command()
+@click.option("--project", "-p", "project_slug", prompt=True, help="project slug")
+@click.option("--subject", "-s", prompt=True, help="issue subject")
+@click.option("--description", "-d", help="issue description")
+@click.option("--attachments", "-a", multiple=True, help="issue description")
+def add_issue(project_slug, subject, description, attachments):
+    click.echo("  Getting project '{}'...".format(project_slug))
+    project = api.projects.list().get(slug=project_slug)
+
+    click.echo("  Creatting issue...'{}'".format(subject))
+    description = description or click.edit('...write description here..') or ""
+    issue = project.add_issue(subject,
+                              project.default_priority,
+                              project.default_issue_status,
+                              project.default_issue_type,
+                              project.default_severity,
+                              description=description)
+
+    if attachments:
+        with click.progressbar(attachments,
+                               label="  Attaching files...") as progressbar:
+            for att in progressbar:
+                issue.attach(att)
+
+
+if __name__ == "__main__":
+    cli()
+                        </code></pre>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                      {
+                        src: 'lib/js/classList.js',
+                        condition: function() { return !document.body.classList; }
+                      },
+                      {
+                        src: 'plugin/markdown/marked.js',
+                        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+                      },
+                      {
+                        src: 'plugin/markdown/markdown.js',
+                        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+                      },
+                      {
+                        src: 'plugin/highlight/highlight.js',
+                        async: true,
+                        condition: function() { return !!document.querySelector( 'pre code' ); },
+                        callback: function() { hljs.initHighlightingOnLoad(); }
+                      },
+                      {
+                        src: 'plugin/zoom-js/zoom.js',
+                        async: true
+                      },
+                      {
+                        src: 'plugin/notes/notes.js',
+                        async: true
+                      }
+                ]
+            });
+        </script>
+    </body>
+</html>
