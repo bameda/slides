@@ -134,14 +134,14 @@
                 <!-- Did you say API? -->
                 <section>
                     <section style="text-align: left"
-                             data-background="https://media.giphy.com/media/1310XHyc6yC6ju/giphy.gif">
+                             data-background="img/how-is-taiga/neverending-story-dragon.gif">
                         <h2>...Did you say <a href="http://taigaio.github.io/taiga-doc/dist/api.html"
                                               target="_blank">API</a>?...</h2>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     </section>
 
                     <section style="text-align: right"
-                             data-background="https://media.giphy.com/media/b9QBHfcNpvqDK/giphy.gif">
+                             data-background="img/how-is-taiga/ducks-party.gif">
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <h2>...let's start the Party!!...</h2>
                     </section>
@@ -460,7 +460,7 @@ curl -X GET \
                         </div>
                     </section>
                     <section style="text-align: right"
-                             data-background="https://media.giphy.com/media/bAplZhiLAsNnG/giphy.gif">
+                             data-background="img/drawing-graphs/jim-carrey-like-god.gif">
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <h2>Let's build it...</h2>
                     </section>
@@ -584,22 +584,24 @@ if __name__ == "__main__":
                     </section>
 
                     <section>
-                        <img src="https://media.giphy.com/media/HvZtZTam9doC4/giphy.gif">
+                        <img src="img/drawing-graphs/cheewbacca-hoolahop.gif">
                         <h2>...you can do it better!!!</h2>
                     </section>
                     <section style="text-align: left"
-                             data-background="https://media.giphy.com/media/MEtSuIu6qu0HC/giphy.gif">
+                             data-background="img/drawing-graphs/homealone.gif">
                         <h2>But you are not alone...</h2>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     </section>
                     <section style="text-align: right"
-                             data-background="https://media.giphy.com/media/CObqVWt7S889O/giphy.gif">
+                             data-background="img/drawing-graphs/minions.gif">
                         <h2>...use the community.</h2>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     </section>
 
                     <section>
-                        <h2><a href="https://github.com/nephila/python-taiga">nephila/python-taiga</a></h2>
+                        <h2><a href="https://github.com/nephila/python-taiga">
+                            nephila/python-taiga
+                        </a></h2>
                         <p>A Python module for communicating with the Taiga API</p>
                     </section>
                     <section>
@@ -706,11 +708,14 @@ if __name__ == "__main__":
 
                             <h4 class="fragment" data-autoslide="200">We use..</h4>
                             <p class="fragment" >
-                                <a href="https://github.com/nephila/python-taiga">nephila/python-taiga</a>
+                                <a href="https://github.com/nephila/python-taiga">
+                                    nephila/python-taiga
+                                </a>
                             </p>
                             <h3 class="fragment" data-autoslide="200">+</h3>
                             <a class="fragment" href="http://click.pocoo.org/">
-                                <img src="img/taiga-ci/click.png" style="border: 0; background: none;">
+                                <img src="img/taiga-ci/click.png"
+                                     style="border: 0; background: none;">
                             </a>
                         </div>
                     </section>
@@ -842,7 +847,9 @@ Password:
                              style="border: 0; background: none;">
                     </section>
                     <section>
-                        <h2><a href="https://github.com/taigaio/taiga-ncurses">taigaio/taiga-ncurses</a></h2>
+                        <h2><a href="https://github.com/taigaio/taiga-ncurses">
+                            taigaio/taiga-ncurses
+                        </a></h2>
                         <p>Taiga curses client for terminal lovers ;-)</p>
                     </section>
                     <section>
@@ -933,13 +940,14 @@ Password:
 
                 <!-- Thanks -->
                 <section style="text-align: left"
-                         data-background="https://media.giphy.com/media/OmLd54mZdoDLi/giphy.gif">
+                         data-background="img/thanks/jake-the-dog.gif">
                     <h2>Thank you!!!</h2>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 </section>
 
                 <!-- Cover End -->
-                <section style="text-align: right" data-background="img/cover/botanical-taiga-bg.png">
+                <section style="text-align: right"
+                         data-background="img/cover/botanical-taiga-bg.png">
                     <h1>Hacking the <a href="https://taiga.io">Taiga</a></h1>
                     <p>
                         <small>
@@ -970,32 +978,42 @@ Password:
 
                 // Optional reveal.js plugins
                 dependencies: [
-                      {
+                    {
                         src: 'lib/js/classList.js',
-                        condition: function() { return !document.body.classList; }
-                      },
-                      {
+                        condition: function() {
+                            return !document.body.classList;
+                        }
+                    },
+                    {
                         src: 'plugin/markdown/marked.js',
-                        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
-                      },
-                      {
+                        condition: function() {
+                            return !!document.querySelector( '[data-markdown]' );
+                        }
+                    },
+                    {
                         src: 'plugin/markdown/markdown.js',
-                        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
-                      },
-                      {
+                        condition: function() {
+                            return !!document.querySelector( '[data-markdown]' );
+                        }
+                    },
+                    {
                         src: 'plugin/highlight/highlight.js',
                         async: true,
-                        condition: function() { return !!document.querySelector( 'pre code' ); },
-                        callback: function() { hljs.initHighlightingOnLoad(); }
-                      },
-                      {
+                        condition: function() {
+                            return !!document.querySelector( 'pre code' );
+                        },
+                        callback: function() {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    },
+                    {
                         src: 'plugin/zoom-js/zoom.js',
                         async: true
-                      },
-                      {
+                    },
+                    {
                         src: 'plugin/notes/notes.js',
                         async: true
-                      }
+                    }
                 ]
             });
         </script>
