@@ -83,22 +83,24 @@
                     </section>
                     <section data-background-transition="convex">
                         <img src="img/who-is-taiga/01.png">
-                    </section>
-                    <section><img src="img/who-is-taiga/02.png"></section>
-                    <section><img src="img/who-is-taiga/03.png"></section>
-                    <section><img src="img/who-is-taiga/04.png"></section>
-                    <section><img src="img/who-is-taiga/05.png"></section>
-                    <section><img src="img/who-is-taiga/06.png"></section>
-                    <section><img src="img/who-is-taiga/07.png"></section>
-                    <section><img src="img/who-is-taiga/08.png"></section>
-                    <section><img src="img/who-is-taiga/09.png"></section>
-                    <section><img src="img/who-is-taiga/10.png"></section>
-                    <section><img src="img/who-is-taiga/11.png"></section>
-                    <section><img src="img/who-is-taiga/12.png"></section>
+                    </section> <!-- project page -->
+                    <section><img src="img/who-is-taiga/02.png"></section> <!-- backlog -->
+                    <section><img src="img/who-is-taiga/04.png"></section> <!-- Sprint -->
+                    <section><img src="img/who-is-taiga/06.png"></section> <!-- Kanban -->
+                    <section><img src="img/who-is-taiga/03.png"></section> <!-- US details -->
+                    <section><img src="img/who-is-taiga/05.png"></section> <!-- Task detail -->
+                    <section><img src="img/who-is-taiga/07.png"></section> <!-- issues list -->
+                    <section><img src="img/who-is-taiga/08.png"></section> <!-- issue detail -->
+                    <section><img src="img/who-is-taiga/09.png"></section> <!-- wiki -->
+                    <section><img src="img/who-is-taiga/10.png"></section> <!-- team -->
+                    <section><img src="img/who-is-taiga/11.png"></section> <!-- admin - attrs -->
+                    <section><img src="img/who-is-taiga/12.png"></section> <!-- admin - permis -->
+                    <!--
                     <section><img src="img/who-is-taiga/13.png"></section>
                     <section><img src="img/who-is-taiga/14.png"></section>
-                    <section><img src="img/who-is-taiga/15.png"></section>
-                    <section><img src="img/who-is-taiga/16.png"></section>
+                    -->
+                    <section><img src="img/who-is-taiga/15.png"></section> <!-- admin - reports -->
+                    <section><img src="img/who-is-taiga/16.png"></section> <!-- user profile -->
                 </section>
 
                 <!-- How is Taiga? -->
@@ -135,8 +137,7 @@
                 <section>
                     <section style="text-align: left"
                              data-background="img/how-is-taiga/neverending-story-dragon.gif">
-                        <h2>...Did you say <a href="http://taigaio.github.io/taiga-doc/dist/api.html"
-                                              target="_blank">API</a>?...</h2>
+                        <h2>...Did you say <a href="https://taigaio.github.io/taiga-doc/dist/api.html#_endpoints_summary" target="_blank">API</a>?...</h2>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     </section>
 
@@ -240,24 +241,24 @@ curl -X GET \
                                project issue stats object.</p>
                             <pre><code data-trim class="json">
 {
-    "total_issues": 668
+    "total_issues": 668,
     "opened_issues": 108,
     "closed_issues": 560,
     "issues_per_type": {
         "1": {
             "id": 1,
-            "name": "Bug"
+            "name": "Bug",
             "color": "#f57900",
-            "count": 501,
+            "count": 501
         },
         (...)
     },
     "issues_per_status": {
         "1": {
             "id": 1,
-            "name": "New"
+            "name": "New",
             "color": "#8C2318",
-            "count": 90,
+            "count": 90
         },
         (...)
     },
@@ -265,9 +266,9 @@ curl -X GET \
         "11": {
             "id": 11,
             "name": "Anler Hern\u00e1ndez Peral",
-            "username": "anler.hernandez"
+            "username": "anler.hernandez",
             "color": "#8f0030",
-            "count": 1,
+            "count": 1
         },
         (...)
     },
@@ -275,49 +276,49 @@ curl -X GET \
         "0": {
             "id": 0,
             "name": "Unassigned",
-            "username": "Unassigned"
+            "username": "Unassigned",
             "color": "black",
-            "count": 185,
+            "count": 185
         },
         (...)
     },
     "issues_per_priority": {
         "1": {
             "id": 1,
-            "name": "Low"
+            "name": "Low",
             "color": "#888a85",
-            "count": 50,
+            "count": 50
         },
         (...)
     },
     "issues_per_severity": {
         "1": {
             "id": 1,
-            "name": "Wishlist"
+            "name": "Wishlist",
             "color": "#888a85",
-            "count": 9,
+            "count": 9
         },
         (...)
     },
     "last_four_weeks_days": {
         "by_open_closed": {
             "closed": [8, 3, 2, 0, (...)],
-            "open": [7, 3, 2, 0, (...)],
+            "open": [7, 3, 2, 0, (...)]
         },
         "by_priority": {
             "1": {
                 "id": 1,
-                "name": "Low"
+                "name": "Low",
                 "color": "#888a85",
-                "data": [18, 17, 17, (...)],
+                "data": [18, 17, 17, (...)]
             },
         },
         "by_severity": {
             "1": {
                 "id": 1,
-                "name": "Wishlist"
+                "name": "Wishlist",
                 "color": "#888a85",
-                "data": [8, 8, 8, (...)],
+                "data": [8, 8, 8, (...)]
             },
         },
         "by_status": {(...)}
@@ -693,6 +694,9 @@ if __name__ == "__main__":
                         <embed src="output/chart_issues_open_close_last_4_weeks.v2.svg"
                                style="border: 0; background: none;">
                     </section>
+                    <section style="text-align: left"
+                             data-background="img/drawing-graphs/magic.gif">
+                    </section>
                 </section>
 
                 <!-- Taiga command line -->
@@ -831,8 +835,10 @@ Password:
                     <section>
                         <h3>You can create a curses client</h3>
                         <h4>with</h4>
-                        <img src="img/community-examples/urwid-logo.png"
-                             style="border: 0; background: none;">
+                        <a href="http://urwid.org/">
+                            <img src="img/community-examples/urwid-logo.png"
+                                 style="border: 0; background: none;">
+                        </a>
                     </section>
                     <section>
                         <img src="img/community-examples/taiga-ncurses-0.png"
@@ -926,14 +932,33 @@ Password:
                         </p>
                     </section>
                     <section>
-                        <h3>...or you can <a href="https://taiga.io/support/how-can-i-contribute-to-taiga/">contribute</a> too with...</h3>
+                        <h3>...and how I can <a href="https://taiga.io/support/how-can-i-contribute-to-taiga/">contribute</a>?</h3>
                         <ul>
-                            <li class="fragment" data-autoslide="200">Code patches</li>
-                            <li class="fragment" data-autoslide="200">Documentation improvements</li>
-                            <li class="fragment" data-autoslide="200">Translations</li>
                             <li class="fragment" data-autoslide="200">Bug reports</li>
+                            <li class="fragment" data-autoslide="200">Code patches</li>
                             <li class="fragment" data-autoslide="200">Patch reviews</li>
+                            <li class="fragment" data-autoslide="200">Translations</li>
+                            <li class="fragment" data-autoslide="200">Documentation improvements</li>
                             <li class="fragment">UI enhancements</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <!--  -->
+                <section>
+                    <section>
+                        <h3>Resources</h3>
+                        <ul>
+                            <li>taigaio en GitHub</li>
+                            <li>@taiga en Twitter</li>
+                            <li>Taiga in Taiga: </li>
+                            <li>Mailing list: </li>
+                            <li>support@taiga.io</li>
+                            <li>User Documentation & FAQs: </li>
+                            <li>Sysadmin y Devs docummentation: </li>
+                            <li>Video Taiga - Pablo Ruíz at Google Campus Madrid</li>
+                            <li>Video Uso Taiga - Jesús Espino at opensource</li>
+                            <li>Video Uso Taiga - Jesús Espino at LasPalmas-DevOps</li>
                         </ul>
                     </section>
                 </section>
