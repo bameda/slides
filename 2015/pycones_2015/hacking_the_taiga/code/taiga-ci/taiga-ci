@@ -23,8 +23,10 @@ def cli(username, password):
 @click.option("--attachments", "-a", multiple=True, help="issue description")
 def add_issue(project_slug, subject, description, attachments):
     """Create a new issue."""
+    me = api.me()
+
     click.echo("  Getting project '{}'...".format(project_slug))
-    project = api.projects.list().get(slug=project_slug)
+    project = api.projects.list(member=me.id).get(slug=project_slug)
 
     click.echo("  Creatting issue...'{}'".format(subject))
     description = description or click.edit("...write description here..") or ""
